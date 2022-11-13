@@ -16,8 +16,11 @@ from sklearn.linear_model import Perceptron
 from sklearn.neighbors import NearestNeighbors
 from sklearn.naive_bayes import GaussianNB
 
-base_treino = pd.read_csv('/content/sample_data/train.csv')
-base_teste = pd.read_csv('/content/sample_data/test.csv')
+url_train = 'https://raw.githubusercontent.com/Sinu-Tech/Precificacao-De-Celulares/main/train.csv'
+base_treino = pd.read_csv(url_train)
+
+url_test = 'https://raw.githubusercontent.com/Sinu-Tech/Precificacao-De-Celulares/main/test.csv'
+base_teste = pd.read_csv(url_test)
 
 base_treino.describe()
 

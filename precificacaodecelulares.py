@@ -12,6 +12,9 @@ import plotly.express as px
 from sklearn.metrics import accuracy_score
 from sklearn import preprocessing
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import Perceptron
+from sklearn.neighbors import NearestNeighbors
+from sklearn.naive_bayes import GaussianNB
 
 base_treino = pd.read_csv('/content/sample_data/train.csv')
 base_teste = pd.read_csv('/content/sample_data/test.csv')
@@ -85,6 +88,8 @@ atributos_normalizados = ss.fit_transform(atributos)
 mms = preprocessing.MinMaxScaler()
 atributos_normalizados = mms.fit_transform(atributos)
 
+"""Ericles"""
+
 modelo = DecisionTreeClassifier()
 modelo.fit(atributos_normalizados, classes)
 
@@ -92,4 +97,39 @@ print(f'Acurácia: {modelo.score(atributos_normalizados, classes)*100}')
 
 pred = modelo.predict(atributos)
 
-print(f'esperado: {classes}, resultado: {pred}')
+print(f'Esperado: {classes}, resultado: {pred}')
+
+"""Joanne"""
+
+modelo = Perceptron()
+modelo.fit(atributos_normalizados, classes)
+
+print(f'Acurácia: {modelo.score(atributos_normalizados, classes)*100}')
+
+pred = modelo.predict(atributos)
+
+print(f'Esperado: {classes}, resultado: {pred}')
+
+"""Milena"""
+
+modelo = GaussianNB()
+modelo.fit(atributos_normalizados, classes)
+
+print(f'Acurácia: {modelo.score(atributos_normalizados, classes)*100}')
+
+pred = modelo.predict(atributos)
+
+print(f'Esperado: {classes}, resultado: {pred}')
+
+"""Kendy"""
+
+modelo = NearestNeighbors(n_neighbors=3)
+modelo.fit(atributos_normalizados, classes)
+
+print(f'Acurácia: {modelo.score(atributos_normalizados, classes)*100}')
+
+pred = modelo.predict(atributos)
+
+print(f'Esperado: {classes}, resultado: {pred}')
+
+"""Thiago"""

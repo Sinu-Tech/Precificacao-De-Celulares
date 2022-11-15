@@ -13,7 +13,7 @@ from sklearn.metrics import accuracy_score
 from sklearn import preprocessing
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import Perceptron
-from sklearn.neighbors import NearestNeighbors
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 
@@ -127,7 +127,7 @@ print(f'Esperado: {classes}, resultado: {pred}')
 
 """Kendy"""
 
-modelo = NearestNeighbors(n_neighbors=3)
+modelo = KNeighborsClassifier(n_neighbors=3)
 modelo.fit(atributos_normalizados, classes)
 
 print(f'Acurácia: {modelo.score(atributos_normalizados, classes)*100}')

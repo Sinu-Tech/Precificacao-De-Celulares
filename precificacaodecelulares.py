@@ -8,6 +8,7 @@ Original file is located at
 """
 
 import pandas as pd
+import os
 import plotly.express as px
 from sklearn.metrics import accuracy_score
 from sklearn import preprocessing
@@ -170,29 +171,33 @@ def cabecalho(menu):
 
 
 def algoritmos():
-    print("1 - Árvore de decisãO")
+    print("1 - Árvore de decisão")
     print("2 - KNN")
     print("3 - Naive Bayes")
     print("4 - Perceptron")
     print("5 - SVC")
+    print("6 - Sair")
 
 
 def opcoes():
-    op = input("Digite o respectivo número referente ao algoritmo: ")
-    if op=='1':
-      decision_tree_classifier()
-    elif op=='2':
-      k_neighbors_classifier()
-    elif op=='3':
-      naive_bayes()
-    elif op=='4':
-      perceptron()
-    elif op=='5':
-      svc()
-      
-    else:
-      print('Opção inválida')
+    op = '1' 
+    while op!='0':
+      os.system('cls')
+      algoritmos();
+      op = input("Digite o respectivo número referente ao algoritmo: ")
+      if op=='1':
+        decision_tree_classifier()
+      elif op=='2':
+        k_neighbors_classifier()
+      elif op=='3':
+        naive_bayes()
+      elif op=='4':
+        perceptron()
+      elif op=='5':
+        svc()
+      elif op!='0':
+        print('Opção inválida')
+      input("Digite qualquer tecla para continuar: ")
 
 cabecalho("ALGORITMOS DE CLASSIFICAÇÃO");
-algoritmos();
 opcoes();
